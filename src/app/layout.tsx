@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 
 import { ThemeProvider } from "@/provider/theme-provider";
+import MainNav from "@/components/main-nav";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -32,7 +33,10 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system">
-          {children}
+          <MainNav />
+          <div className="h-full w-full lg:max-w-7xl mx-auto p-3 px-7 mt-16">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
