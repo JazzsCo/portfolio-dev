@@ -1,6 +1,5 @@
 "use client";
 
-import Lottie from "lottie-react";
 import {
   Calendar,
   Download,
@@ -10,15 +9,42 @@ import {
   PhoneCall,
   Send,
   User2,
+  Code,
 } from "lucide-react";
+import Lottie from "lottie-react";
+import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import LocationAnimationData from "@/assets/location-animation.json";
 import SampleAnimationData from "@/assets/sample-animation.json";
 import DeveloperAnimationData from "@/assets/developer-animation.json";
 import SampleBoyAnimationData from "@/assets/boy-animation.json";
+import SampleSatBoyAnimation from "@/assets/satboyanimation.json";
+import UserInfoAnimation from "@/assets/user-info-animation.json";
+import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+type skillDataType = {
+  title: string;
+  data: Datum[];
+};
+
+type Datum = {
+  name?: string;
+  imageUrl?: string;
+};
 
 const infoData = [
   {
@@ -26,20 +52,20 @@ const infoData = [
     text: "Tom",
   },
   {
-    icon: <Calendar />,
-    text: "Born on Oct 17, 2003",
-  },
-  {
-    icon: <HomeIcon />,
-    text: "Yangon, Kamaryut Hledan",
-  },
-  {
     icon: <PhoneCall />,
     text: "+959969417233",
   },
   {
+    icon: <Calendar />,
+    text: "Born on Oct 17, 2003",
+  },
+  {
     icon: <MailIcon />,
     text: "ygyi8632@gmail.com",
+  },
+  {
+    icon: <HomeIcon />,
+    text: "Yangon, Kamaryut Hledan",
   },
   {
     icon: <GraduationCap />,
@@ -47,48 +73,49 @@ const infoData = [
   },
 ];
 
-const skillData = [
+const skillData: skillDataType[] = [
   {
     title: "skills",
     data: [
       {
-        name: "HTML, CSS, Tailwind",
+        name: "Typescript",
+        imageUrl: "/icons/typescript.svg",
       },
       {
-        name: "Javascript, Typescript, C++, Java",
+        name: "Node",
+        imageUrl: "/icons/node.svg",
       },
       {
-        name: "Front-end Development",
+        name: "Express",
+        imageUrl: "/icons/express.svg",
       },
       {
-        name: "React, Svelte",
-      },
-      {
-        name: "Back-end Development",
-      },
-      {
-        name: "Node, Express",
-      },
-      {
-        name: "Full-stack Development",
+        name: "React",
+        imageUrl: "/icons/react.svg",
       },
       {
         name: "Nextjs",
+        imageUrl: "/icons/next.svg",
       },
       {
-        name: "Mobile Development",
+        name: "React Native",
+        imageUrl: "/icons/react.svg",
       },
       {
-        name: "React Native, Expo",
+        name: "Expo",
+        imageUrl: "/icons/expo.svg",
       },
       {
-        name: "Sql & NoSql",
+        name: "Sql, NoSql",
+        imageUrl: "/icons/database.svg",
       },
       {
-        name: "ORM -Prisma",
+        name: "Prisma",
+        imageUrl: "/icons/prisma.svg",
       },
       {
         name: "Other Libraries",
+        imageUrl: "/icons/fire.svg",
       },
     ],
   },
@@ -96,10 +123,12 @@ const skillData = [
     title: "tools",
     data: [
       {
-        imageUrl: "/icons/DeviconAndroidstudio.svg",
+        name: "Android Studio",
+        imageUrl: "/icons/android-studio.svg",
       },
       {
-        imageUrl: "/icons/DeviconVscode.svg",
+        name: "Visual Studio Code",
+        imageUrl: "/icons/vscode.svg",
       },
     ],
   },
@@ -119,13 +148,13 @@ export default function Home() {
   return (
     <main>
       {/* Home Section */}
-      <section className="mt-20 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
+      <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
             <h1 className="text-lg -tracking-tighter font-semibold">
               Fullstack Developer
             </h1>
-            <h2 className="text-3xl font-bold">Hello, my name is Tom</h2>
+            <h2 className="text-3xl font-bold">Hello, My name is Tom</h2>
             <p className="text-muted-foreground">
               8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
               Build A Portfolio Website: Re
@@ -143,17 +172,91 @@ export default function Home() {
         </div>
 
         <div className="w-[220px] sm:w-[300px] md:w-[380px]">
-          <Lottie
-            animationData={DeveloperAnimationData}
-            style={{
-              colorInterpolation: "sRGB",
-            }}
-          />
+          <Lottie animationData={DeveloperAnimationData} />
         </div>
       </section>
 
       {/* About Section */}
-      <section className="bg-slate-200 mt-20">Hello About Section</section>
+      <section className="mt-24 flex flex-col-reverse items-center justify-around md:flex-row md:space-x-10 transition-all">
+        <div className="w-[220px] sm:w-[300px] md:w-[380px] mt-14 md:mt-0">
+          <Lottie animationData={UserInfoAnimation} />
+        </div>
+
+        <Tabs defaultValue="personal" className="w-[600px]">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="personal">Personal Info</TabsTrigger>
+            <TabsTrigger value="skills">Skills</TabsTrigger>
+          </TabsList>
+          <TabsContent value="personal">
+            <Card>
+              <CardHeader>
+                <CardTitle>Personal Info</CardTitle>
+                <CardDescription>
+                  Make changes to your account here. Click save when youre done.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="p-2 flex flex-col gap-5">
+                  {infoData.map((data) => (
+                    <div key={data.text} className="flex gap-6">
+                      <div className="w-4 h-4 text-primary">{data.icon}</div>
+                      <p className="text-muted-foreground">{data.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="skills">
+            <Card>
+              <CardHeader>
+                <CardTitle className="-tracking-tighter">
+                  Languages 🚀
+                </CardTitle>
+                <CardDescription>
+                  I use this languages, frameworks, database, tools and other
+                  libraries every day.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2 ">
+                <div className="p-2 grid grid-cols-2 gap-5">
+                  {skillData[0].data.map((data, _i) => (
+                    <div key={_i} className="flex gap-6">
+                      <Image
+                        alt={data.imageUrl}
+                        src={data.imageUrl}
+                        width={10}
+                        height={10}
+                        className="w-6 h-6"
+                      />
+                      <p className="text-muted-foreground">{data.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+
+              <CardContent className="space-y-2 ">
+                <div className="p-2 grid grid-cols-2 gap-5">
+                  {skillData[1].data.map((data, _i) => (
+                    <div key={_i} className="flex gap-6">
+                      <Image
+                        //@ts-ignore
+                        alt={data.imageUrl}
+                        //@ts-ignore
+                        src={data.imageUrl}
+                        width={10}
+                        height={10}
+                        className="w-6 h-6"
+                      />
+                      <p className="text-muted-foreground">{data.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
+      </section>
     </main>
   );
 }

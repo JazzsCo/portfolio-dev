@@ -4,11 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/theme-toggle";
-import { Button } from "./ui/button";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
 
@@ -35,7 +34,7 @@ const MainNav = () => {
 
   return (
     <div className="relative">
-      <div className="fixed left-0 top-0 flex w-full border-b border-gray-200 bg-gradient-to-b from-zinc-200 py-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:dark:bg-zinc-800/30 bg-opacity-0 ">
+      <div className="fixed z-10 left-0 top-0 flex w-full border-b border-gray-200 bg-gradient-to-b from-zinc-200 py-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:dark:bg-zinc-800/30 bg-opacity-0 ">
         <div className="w-full lg:max-w-7xl mx-auto px-5 md:px-7 flex items-center justify-between">
           <Link href="/">
             <div className="relative flex items-end">
