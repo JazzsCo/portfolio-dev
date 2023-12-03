@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Calendar,
   Download,
@@ -9,7 +10,6 @@ import {
   PhoneCall,
   Send,
   User2,
-  Code,
 } from "lucide-react";
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
@@ -19,12 +19,9 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import LocationAnimationData from "@/assets/location-animation.json";
@@ -33,8 +30,6 @@ import DeveloperAnimationData from "@/assets/developer-animation.json";
 import SampleBoyAnimationData from "@/assets/boy-animation.json";
 import SampleSatBoyAnimation from "@/assets/satboyanimation.json";
 import UserInfoAnimation from "@/assets/user-info-animation.json";
-import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
 
 type skillDataType = {
   title: string;
@@ -94,7 +89,7 @@ const skillData: skillDataType[] = [
         imageUrl: "/icons/react.svg",
       },
       {
-        name: "Nextjs",
+        name: "Next",
         imageUrl: "/icons/next.svg",
       },
       {
@@ -182,10 +177,14 @@ export default function Home() {
           <Lottie animationData={UserInfoAnimation} />
         </div>
 
-        <Tabs defaultValue="personal" className="w-[600px]">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="personal">Personal Info</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
+        <Tabs defaultValue="personal" className="md:w-[600px]">
+          <TabsList className="grid w-[180px] md:w-full grid-cols-1 md:grid-cols-2 gap-1 md:gap-0 mx-auto md:mx-0 mb-16 md:mb-0">
+            <TabsTrigger value="personal" className="bg-muted">
+              Personal Info
+            </TabsTrigger>
+            <TabsTrigger value="skills" className="bg-muted">
+              Skills
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="personal">
             <Card>
@@ -196,7 +195,7 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <div className="p-2 flex flex-col gap-5">
+                <div className="p-2 flex flex-col items-center md:items-start gap-5">
                   {infoData.map((data) => (
                     <div key={data.text} className="flex gap-6">
                       <div className="w-4 h-4 text-primary">{data.icon}</div>
@@ -210,20 +209,20 @@ export default function Home() {
           <TabsContent value="skills">
             <Card>
               <CardHeader>
-                <CardTitle className="-tracking-tighter">
-                  Languages 🚀
-                </CardTitle>
+                <CardTitle className="-tracking-tighter">Languages</CardTitle>
                 <CardDescription>
                   I use this languages, frameworks, database, tools and other
                   libraries every day.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2 ">
-                <div className="p-2 grid grid-cols-2 gap-5">
+                <div className="p-2 flex flex-col items-center md:grid md:grid-cols-2 gap-5 transition-all">
                   {skillData[0].data.map((data, _i) => (
                     <div key={_i} className="flex gap-6">
                       <Image
+                        // @ts-ignore
                         alt={data.imageUrl}
+                        // @ts-ignore
                         src={data.imageUrl}
                         width={10}
                         height={10}
@@ -236,7 +235,7 @@ export default function Home() {
               </CardContent>
 
               <CardContent className="space-y-2 ">
-                <div className="p-2 grid grid-cols-2 gap-5">
+                <div className="p-2 flex flex-col items-center md:grid md:grid-cols-2 gap-5 transition-all">
                   {skillData[1].data.map((data, _i) => (
                     <div key={_i} className="flex gap-6">
                       <Image
