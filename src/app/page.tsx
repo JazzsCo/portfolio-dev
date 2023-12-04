@@ -39,6 +39,7 @@ import DeveloperAnimationData from "@/assets/developer-animation.json";
 import SampleBoyAnimationData from "@/assets/boy-animation.json";
 import SampleSatBoyAnimation from "@/assets/satboyanimation.json";
 import UserInfoAnimation from "@/assets/user-info-animation.json";
+import { Badge } from "@/components/ui/badge";
 
 type skillDataType = {
   title: string;
@@ -48,6 +49,16 @@ type skillDataType = {
 type Datum = {
   name?: string;
   imageUrl?: string;
+};
+
+type ProjectsDataType = {
+  name: string;
+  description: string;
+  category: string;
+  tools: string[];
+  imgUrl: string;
+  liveLink: string;
+  githubLink: string;
 };
 
 const infoData = [
@@ -138,24 +149,21 @@ const skillData: skillDataType[] = [
   },
 ];
 
-const projectData = [
+const projectData: ProjectsDataType[] = [
   {
     name: "Genius AI",
     description:
       "Make changes to your account here. Click save when youre done.",
     category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
+    tools: [
+      "Typescript",
+      "Javascript",
+      "React",
+      "Nextjs",
+      "Tailwind",
+      "Shadcn UI",
+    ],
+    imgUrl: "/projects/genius.png",
     liveLink: "/",
     githubLink: "/",
   },
@@ -164,118 +172,45 @@ const projectData = [
     description:
       "Make changes to your account here. Click save when youre done.",
     category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
+    tools: [
+      "Typescript",
+      "Javascript",
+      "React",
+      "Nextjs",
+      "Tailwind",
+      "Shadcn UI",
+    ],
+    imgUrl: "/projects/ecommerce.png",
     liveLink: "/",
     githubLink: "/",
   },
   {
-    name: "Ecommerce Admin",
+    name: "Food Delivery App",
     description:
       "Make changes to your account here. Click save when youre done.",
-    category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
+    category: "POS",
+    tools: ["Typescript", "Javascript", "React Native", "Expo", "Tailwind"],
+    imgUrl: "/projects/ecommerce.png",
     liveLink: "/",
     githubLink: "/",
   },
   {
-    name: "Ecommerce Admin",
+    name: "Car Rental",
     description:
       "Make changes to your account here. Click save when youre done.",
-    category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
+    category: "Service",
+    tools: ["Typescript", "Javascript", "React", "Nextjs", "Tailwind"],
+    imgUrl: "/projects/carrental.png",
     liveLink: "/",
     githubLink: "/",
   },
   {
-    name: "Ecommerce Admin",
+    name: "Ecommerce UI App",
     description:
       "Make changes to your account here. Click save when youre done.",
-    category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
-    liveLink: "/",
-    githubLink: "/",
-  },
-  {
-    name: "Ecommerce Admin",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
-    liveLink: "/",
-    githubLink: "/",
-  },
-  {
-    name: "Ecommerce Admin",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    category: "SAAS",
-    tools: {
-      lng: ["Typescript", "Javascript"],
-      framework: [
-        "React",
-        "Nextjs",
-        "Tailwind",
-        "Shadcn UI",
-        "Prisma",
-        "Stripe",
-      ],
-    },
-    imgUrl: "/",
+    category: "UI",
+    tools: ["Typescript", "Javascript", "React Native", "Expo", "Tailwind"],
+    imgUrl: "/projects/genius.png",
     liveLink: "/",
     githubLink: "/",
   },
@@ -423,34 +358,143 @@ export default function Home() {
         </div>
 
         {/* Latest Projects */}
-        <div className="w-2/4">
+        <div className="w-3/5 hidden md:block">
           <Swiper
             // install Swiper modules
             modules={[Pagination]}
-            spaceBetween={50}
+            spaceBetween={30}
             slidesPerView={2}
             pagination={{ clickable: true }}
           >
-            {projectData.map((data) => (
+            {projectData.map((data: ProjectsDataType) => (
               <SwiperSlide key={data.liveLink}>
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Create project</CardTitle>
-                    <CardDescription>
-                      Deploy your new project in one-click.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <form>
-                      <div className="grid w-full items-center gap-4"></div>
-                    </form>
-                  </CardContent>
-                </Card>
+                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
+                  <div>
+                    <Image
+                      alt="Image"
+                      src={data.imgUrl}
+                      width={20}
+                      height={20}
+                      className="w-full object-fill rounded-md"
+                    />
+                  </div>
+                  <div className="px-3 py-3">
+                    <div>
+                      <div className="flex gap-3">
+                        <h1 className="font-medium">{data.name}</h1>
+                        <Badge>{data.category}</Badge>
+                      </div>
+                      <p className="text-muted-foreground text-sm ml-1 mt-1">
+                        {data.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      {data.tools.map((item, _i) => (
+                        <div
+                          key={_i}
+                          className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </section>
+      <section>
+        <div className="w-full hidden sm:block md:hidden mt-8">
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination]}
+            spaceBetween={30}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+          >
+            {projectData.map((data: ProjectsDataType) => (
+              <SwiperSlide key={data.liveLink}>
+                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
+                  <div>
+                    <Image
+                      alt="Image"
+                      src={data.imgUrl}
+                      width={20}
+                      height={20}
+                      className="w-full object-fill rounded-md"
+                    />
+                  </div>
+                  <div className="px-3 py-3">
+                    <div>
+                      <div className="flex gap-3">
+                        <h1 className="font-medium">{data.name}</h1>
+                        <Badge>{data.category}</Badge>
+                      </div>
+                      <p className="text-muted-foreground text-sm ml-1 mt-1">
+                        {data.description}
+                      </p>
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      {data.tools.map((item, _i) => (
+                        <div
+                          key={_i}
+                          className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                        >
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+      <div className="flex flex-col items-center justify-center mt-8 gap-5 sm:hidden">
+        {projectData.map((data: ProjectsDataType) => (
+          <div
+            key={data.liveLink}
+            className="w-[300px] md:w-[320px] border rounded-md bg-muted"
+          >
+            <div>
+              <Image
+                alt="Image"
+                src={data.imgUrl}
+                width={20}
+                height={20}
+                className="w-full object-fill rounded-md"
+              />
+            </div>
+            <div className="px-3 py-3">
+              <div>
+                <div className="flex gap-3">
+                  <h1 className="font-medium">{data.name}</h1>
+                  <Badge>{data.category}</Badge>
+                </div>
+                <p className="text-muted-foreground text-sm ml-1 mt-1">
+                  {data.description}
+                </p>
+              </div>
+
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                {data.tools.map((item, _i) => (
+                  <div
+                    key={_i}
+                    className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
