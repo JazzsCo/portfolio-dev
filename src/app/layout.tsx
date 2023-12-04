@@ -32,7 +32,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="light">
           <MainNav />
           <div className="h-full w-full lg:max-w-7xl mx-auto p-3 px-7 mt-16">
             {children}

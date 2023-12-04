@@ -14,6 +14,15 @@ import {
 import Lottie from "lottie-react";
 import { useEffect, useState } from "react";
 
+// import Swiper core and required modules
+import { Pagination } from "swiper/modules";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -129,6 +138,149 @@ const skillData: skillDataType[] = [
   },
 ];
 
+const projectData = [
+  {
+    name: "Genius AI",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+  {
+    name: "Ecommerce Admin",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    category: "SAAS",
+    tools: {
+      lng: ["Typescript", "Javascript"],
+      framework: [
+        "React",
+        "Nextjs",
+        "Tailwind",
+        "Shadcn UI",
+        "Prisma",
+        "Stripe",
+      ],
+    },
+    imgUrl: "/",
+    liveLink: "/",
+    githubLink: "/",
+  },
+];
+
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -209,9 +361,9 @@ export default function Home() {
           <TabsContent value="skills">
             <Card>
               <CardHeader>
-                <CardTitle className="-tracking-tighter">Languages</CardTitle>
+                <CardTitle>What I Use Everyday</CardTitle>
                 <CardDescription>
-                  I use this languages, frameworks, database, tools and other
+                  I use this languages, frameworks, databases, tools and other
                   libraries every day.
                 </CardDescription>
               </CardHeader>
@@ -255,6 +407,49 @@ export default function Home() {
             </Card>
           </TabsContent>
         </Tabs>
+      </section>
+
+      <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
+        <div className="space-y-5 w-1/4 flel flex-col justify-center">
+          <div className="space-y-3 text-center md:text-left transition-all">
+            <h2 className="text-3xl font-bold -tracking-tighter">
+              Latest Projects
+            </h2>
+            <p className="text-muted-foreground">
+              8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
+              Build A Portfolio Website: Re
+            </p>
+          </div>
+        </div>
+
+        {/* Latest Projects */}
+        <div className="w-2/4">
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination]}
+            spaceBetween={50}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+          >
+            {projectData.map((data) => (
+              <SwiperSlide key={data.liveLink}>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Create project</CardTitle>
+                    <CardDescription>
+                      Deploy your new project in one-click.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <form>
+                      <div className="grid w-full items-center gap-4"></div>
+                    </form>
+                  </CardContent>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </section>
     </main>
   );
