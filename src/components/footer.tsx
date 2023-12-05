@@ -49,7 +49,7 @@ const Footer = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="relative w-full">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#2DAC5C"
@@ -58,10 +58,7 @@ const Footer = () => {
         ></path>
       </svg>
 
-      <div className="flex items-center justify-between px-10 -mt-4 sm:-mt-7">
-        <p className="text-slate-350 text-[10px] sm:text-sm">
-          Copyright &copy; Tom. All rights reserved.
-        </p>
+      <div className="absolute bottom-2 right-2 flex flex-col items-center gap-1">
         <div className="hidden md:flex md:space-x-2">
           {socialData.map((data) => (
             <Link href={data.link} key={data.link}>
@@ -69,6 +66,10 @@ const Footer = () => {
             </Link>
           ))}
         </div>
+
+        <p className="text-black/75 text-[10px] sm:text-sm">
+          Copyright &copy; Tom. All rights reserved.
+        </p>
       </div>
     </div>
   );

@@ -9,6 +9,21 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/theme-toggle";
 
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { MenuIcon } from "lucide-react";
+
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
 
 const MainNav = () => {
@@ -50,24 +65,60 @@ const MainNav = () => {
             </div>
           </Link>
 
-          <div>
-            <div className="hidden md:flex items-center space-x-5">
-              {routes.map((route) => (
-                <Link key={route.href} href={route.href}>
-                  <h2
-                    className={cn(
-                      "hover:text-green-700 transition-all",
-                      route.active ? "text-green-700" : "text-primary",
-                      poppins.className
-                    )}
-                  >
-                    {route.name}
-                  </h2>
-                </Link>
-              ))}
+          <div className="hidden md:flex items-center space-x-5">
+            {routes.map((route) => (
+              <Link key={route.href} href={route.href}>
+                <h2
+                  className={cn(
+                    "hover:text-green-700 transition-all",
+                    route.active ? "text-green-700" : "text-primary",
+                    poppins.className
+                  )}
+                >
+                  {route.name}
+                </h2>
+              </Link>
+            ))}
 
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
+          </div>
+
+          <div className="flex md:hidden items-center space-x-3">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon">
+                  <MenuIcon />
+                </Button>
+              </SheetTrigger>
+
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Edit profile</SheetTitle>
+                </SheetHeader>
+
+                <div className="px-3 mt-5 w-full flex justify-center">
+                  <div className="flex flex-col items-center justify-center space-y-3">
+                    {routes.map((route) => (
+                      <Link key={route.href} href={route.href}>
+                        <SheetClose>
+                          <h2
+                            className={cn(
+                              "hover:text-green-700 transition-all",
+                              route.active ? "text-green-700" : "text-primary",
+                              poppins.className
+                            )}
+                          >
+                            {route.name}
+                          </h2>
+                        </SheetClose>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            <ThemeToggle />
           </div>
         </div>
       </div>
