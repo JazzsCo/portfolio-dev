@@ -686,6 +686,17 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <div>
+        <div className="flex flex-col items-center justify-center gap-5 mt-24">
+          <h2 className="text-3xl font-semibold text-center">
+            Prepared to turn your ideas into reality? I can help you
+          </h2>
+          <Button className="text-slate-100 w-[180px] -tracking-tighter">
+            Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
+          </Button>
+        </div>
+      </div>
     </main>
   );
 }
