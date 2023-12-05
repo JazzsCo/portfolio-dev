@@ -700,3 +700,6 @@ export default function Home() {
     </main>
   );
 }
+
+// I will use this bg color for cool theme website to see
+// bg-secondary/80 dark:bg-secondary/20
