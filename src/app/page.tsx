@@ -40,6 +40,7 @@ import SampleBoyAnimationData from "@/assets/boy-animation.json";
 import SampleSatBoyAnimation from "@/assets/satboyanimation.json";
 import UserInfoAnimation from "@/assets/user-info-animation.json";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 type skillDataType = {
   title: string;
@@ -354,6 +355,17 @@ export default function Home() {
               8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
               Build A Portfolio Website: Re
             </p>
+          </div>
+          <div>
+            <Link href="/projects">
+              <Button
+                size="lg"
+                variant="outline"
+                className="hover:bg-primary hover:text-white"
+              >
+                Latest Projects
+              </Button>
+            </Link>
           </div>
         </div>
 
