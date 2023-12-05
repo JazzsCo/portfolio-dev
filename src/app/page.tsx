@@ -41,6 +41,7 @@ import SampleSatBoyAnimation from "@/assets/satboyanimation.json";
 import UserInfoAnimation from "@/assets/user-info-animation.json";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type skillDataType = {
   title: string;
@@ -214,6 +215,65 @@ const projectData: ProjectsDataType[] = [
     imgUrl: "/projects/genius.png",
     liveLink: "/",
     githubLink: "/",
+  },
+];
+
+const reviewData = [
+  {
+    name: "Thomas",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Rose",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Suzy Buki",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Ah Shi Mar",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Genius Sign",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Hazsto",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Toki Moki",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
+  },
+  {
+    name: "Jenies Kiki",
+    description:
+      "Make changes to your account here. Click save when youre done.",
+    job: "Water",
+    imgUrl: "/projects/genius.png",
   },
 ];
 
@@ -504,6 +564,125 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Reviews */}
+      <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
+        <div className="space-y-5 w-1/4 flel flex-col justify-center">
+          <div className="space-y-3 text-center md:text-left transition-all">
+            <h2 className="text-3xl font-bold -tracking-tighter">Reviews</h2>
+            <p className="text-muted-foreground">
+              8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
+              Build A Portfolio Website: Re
+            </p>
+          </div>
+        </div>
+
+        {/* Reviews */}
+        <div className="w-3/5 hidden md:block">
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination]}
+            spaceBetween={30}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+          >
+            {reviewData.map((data) => (
+              <SwiperSlide key={data.name}>
+                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted p-3">
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <Avatar>
+                        <AvatarImage
+                          src="https://github.com/shadcn.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <div className="-mt-1">
+                      <h1 className="font-semibold">{data.name}</h1>
+                      <h3 className="text-xs text-muted-foreground">
+                        {data.job}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="py-2 px-3 text-muted-foreground text-sm">
+                    <p>{data.description}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+      <section>
+        <div className="w-full hidden sm:block md:hidden mt-8">
+          <Swiper
+            // install Swiper modules
+            modules={[Pagination]}
+            spaceBetween={30}
+            slidesPerView={2}
+            pagination={{ clickable: true }}
+          >
+            {reviewData.map((data) => (
+              <SwiperSlide key={data.name}>
+                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted p-3">
+                  <div className="flex items-center gap-3">
+                    <div>
+                      <Avatar>
+                        <AvatarImage
+                          src="https://github.com/shadcn.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <div className="-mt-1">
+                      <h1 className="font-semibold">{data.name}</h1>
+                      <h3 className="text-xs text-muted-foreground">
+                        {data.job}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className="py-2 px-3 text-muted-foreground text-sm">
+                    <p>{data.description}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
+      <div className="flex flex-col items-center justify-center mt-8 gap-5 sm:hidden">
+        {reviewData.map((data) => (
+          <div key={data.name}>
+            <SwiperSlide>
+              <div className="w-[300px] md:w-[320px] border rounded-md bg-muted p-3">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <Avatar>
+                      <AvatarImage
+                        src="https://github.com/shadcn.png"
+                        alt="@shadcn"
+                      />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <div className="-mt-1">
+                    <h1 className="font-semibold">{data.name}</h1>
+                    <h3 className="text-xs text-muted-foreground">
+                      {data.job}
+                    </h3>
+                  </div>
+                </div>
+                <div className="py-2 px-3 text-muted-foreground text-sm">
+                  <p>{data.description}</p>
+                </div>
+              </div>
+            </SwiperSlide>
           </div>
         ))}
       </div>
