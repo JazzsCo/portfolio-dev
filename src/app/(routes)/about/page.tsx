@@ -151,7 +151,7 @@ const AboutPage = () => {
         <div className="flex flex-wrap items-center justify-center gap-3 gap-x-7">
           {skillData.map((data) => (
             <div key={data.imageUrl}>
-              <div className="px-4 py-3 w-[130px] flex items-center rounded-md bg-slate-100 dark:bg-slate-900">
+              <div className="px-4 py-3 w-[130px] flex items-center rounded-md bg-muted">
                 <Avatar className="w-6 h-6 md:w-8 md:h-8">
                   <AvatarImage src={data.imageUrl} alt="@shadcn" />
                   <AvatarFallback>
@@ -161,7 +161,7 @@ const AboutPage = () => {
                 </Avatar>
 
                 <div className="ml-5 font-semibold">
-                  <CountUp end={data.rate} duration={5} delay={2} />
+                  <CountUp end={data.rate} duration={5} delay={0} />
                   &nbsp;%
                 </div>
               </div>
