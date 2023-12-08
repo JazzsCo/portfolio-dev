@@ -66,7 +66,7 @@ const ContactPage = () => {
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-10 w-2/4 flex flex-col items-center md:items-start justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold">Let's Work Together.</h2>
+            <h2 className="text-3xl font-bold">Lets Work Together.</h2>
             <p className="text-muted-foreground">
               If you need fullstack developer with junior position, Please
               content me.
@@ -114,6 +114,7 @@ const ContactPage = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-5 grid grid-cols-6"
             >
+              {/* `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;` */}
               <FormField
                 control={form.control}
                 name="name"
@@ -128,7 +129,6 @@ const ContactPage = () => {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="email"
@@ -145,7 +145,6 @@ const ContactPage = () => {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="content"
@@ -154,7 +153,7 @@ const ContactPage = () => {
                     <FormLabel className="-tracking-tighter">Content</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Something If you went"
+                        placeholder="Something If you want"
                         {...field}
                       />
                     </FormControl>
@@ -163,7 +162,6 @@ const ContactPage = () => {
                   </FormItem>
                 )}
               />
-
               <Button className="col-start-2 text-slate-100 col-span-4 -tracking-tighter">
                 Lets Talk
               </Button>
