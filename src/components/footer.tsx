@@ -7,32 +7,32 @@ import { useEffect, useState } from "react";
 const socialData = [
   {
     name: "facebook",
-    link: "/",
+    link: "https://www.facebook.com/profile.php?id=100035109380459",
     imgUrl: "/social/facebook.png",
   },
   {
     name: "discord",
-    link: "/",
+    link: "https://discord.com/channels/@me/1073582027640688672",
     imgUrl: "/social/discord.png",
   },
   {
     name: "github",
-    link: "/",
+    link: "https://github.com/JazzsCo",
     imgUrl: "/social/github.png",
   },
   {
     name: "instagram",
-    link: "/",
+    link: "https://www.instagram.com/thuyein_o/",
     imgUrl: "/social/instagram.png",
   },
   {
     name: "line",
-    link: "/",
+    link: "https://line.me/ti/p/LiQRD9kYn2",
     imgUrl: "/social/line.png",
   },
   {
     name: "linkedin",
-    link: "/",
+    link: "https://www.linkedin.com/in/jazzs-co-7aa4a526b/",
     imgUrl: "/social/linkedin.png",
   },
 ];
@@ -61,9 +61,13 @@ const Footer = () => {
       <div className="absolute bottom-2 right-2 flex flex-col items-center gap-1">
         <div className="hidden md:flex md:space-x-2">
           {socialData.map((data) => (
-            <Link href={data.link} key={data.link}>
+            <a
+              key={data.link}
+              onClick={() => window.open(data.link)}
+              className="cursor-pointer"
+            >
               <Image alt="Image" src={data.imgUrl} width={20} height={20} />
-            </Link>
+            </a>
           ))}
         </div>
 

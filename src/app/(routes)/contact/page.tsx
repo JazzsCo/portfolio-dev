@@ -92,23 +92,37 @@ const ContactPage = () => {
               </div>
             </a>
 
-            <Link href="https://mail.google.com/mail/u/0/#sent?compose=CllgCJvlHJLCRrGqkqwjvwMvvLjvcWrSQgzzhVwWtHWtwXZNJjTXXVNPFmZpWbwfHNHnWThWSNB">
+            <a
+              onClick={() =>
+                window.open(
+                  "https://mail.google.com/mail/u/0/#sent?compose=CllgCJvlHJLCRrGqkqwjvwMvvLjvcWrSQgzzhVwWtHWtwXZNJjTXXVNPFmZpWbwfHNHnWThWSNB"
+                )
+              }
+              className="cursor-pointer"
+            >
               <div className="flex gap-6">
                 <div className="w-4 h-4 text-primary mt-[3px]">
                   <MailIcon />
                 </div>
                 <p className="text-muted-foreground">ygyi8632@gmail.com</p>
               </div>
-            </Link>
+            </a>
 
-            <Link href="https://www.google.com/maps/dir/16.831045,96.123634/16.8310432,96.123634/@16.8314048,96.1233416,19.31z/data=!4m5!4m4!1m1!4e1!1m0!3e3?entry=ttu">
+            <a
+              onClick={() =>
+                window.open(
+                  "https://www.google.com/maps/dir/16.831045,96.123634/16.8310432,96.123634/@16.8314048,96.1233416,19.31z/data=!4m5!4m4!1m1!4e1!1m0!3e3?entry=ttu"
+                )
+              }
+              className="cursor-pointer"
+            >
               <div className="flex gap-6">
                 <div className="w-4 h-4 text-primary text-center">
                   <HomeIcon />
                 </div>
                 <p className="text-muted-foreground">Yangon, Kamaryut Hledan</p>
               </div>
-            </Link>
+            </a>
           </div>
 
           <Button variant="outline" className="w-[180px] -tracking-tighter">
