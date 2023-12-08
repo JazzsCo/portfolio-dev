@@ -26,6 +26,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
+import { Qahiri } from "next/font/google";
 
 const formSchema = z.object({
   name: z.string().nonempty("Name is required."),
@@ -69,31 +71,44 @@ const ContactPage = () => {
             <h2 className="text-3xl font-bold">Lets Work Together.</h2>
             <p className="text-muted-foreground">
               If you need fullstack developer with junior position, Please
-              content me.
+              contact me.
             </p>
           </div>
 
           <div className="flex flex-col items-center md:items-start gap-5">
-            <div className="flex gap-6">
-              <div className="w-4 h-4 text-primary">
-                <PhoneCall />
-              </div>
-              <p className="text-muted-foreground">+959969417233</p>
-            </div>
+            <a
+              onClick={() => {
+                const phone = +959969417233;
 
-            <div className="flex gap-6">
-              <div className="w-4 h-4 text-primary">
-                <MailIcon />
+                window.open("tel:" + phone);
+              }}
+              className="cursor-pointer"
+            >
+              <div className="flex gap-6">
+                <div className="w-2 h-2 text-primary mt-[2px]">
+                  <PhoneCall />
+                </div>
+                <p className="text-muted-foreground">+959969417233</p>
               </div>
-              <p className="text-muted-foreground">ygyi8632@gmail.com</p>
-            </div>
+            </a>
 
-            <div className="flex gap-6">
-              <div className="w-4 h-4 text-primary">
-                <HomeIcon />
+            <Link href="https://mail.google.com/mail/u/0/#sent?compose=CllgCJvlHJLCRrGqkqwjvwMvvLjvcWrSQgzzhVwWtHWtwXZNJjTXXVNPFmZpWbwfHNHnWThWSNB">
+              <div className="flex gap-6">
+                <div className="w-4 h-4 text-primary mt-[3px]">
+                  <MailIcon />
+                </div>
+                <p className="text-muted-foreground">ygyi8632@gmail.com</p>
               </div>
-              <p className="text-muted-foreground">Yangon, Kamaryut Hledan</p>
-            </div>
+            </Link>
+
+            <Link href="https://www.google.com/maps/dir/16.831045,96.123634/16.8310432,96.123634/@16.8314048,96.1233416,19.31z/data=!4m5!4m4!1m1!4e1!1m0!3e3?entry=ttu">
+              <div className="flex gap-6">
+                <div className="w-4 h-4 text-primary text-center">
+                  <HomeIcon />
+                </div>
+                <p className="text-muted-foreground">Yangon, Kamaryut Hledan</p>
+              </div>
+            </Link>
           </div>
 
           <Button variant="outline" className="w-[180px] -tracking-tighter">

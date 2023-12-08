@@ -305,9 +305,11 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start gap-5">
-            <Button className="text-slate-100 w-[180px] -tracking-tighter">
-              Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
-            </Button>
+            <Link href="/contact">
+              <Button className="text-slate-100 w-[180px] -tracking-tighter">
+                Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
+              </Button>
+            </Link>
             <Button variant="outline" className="w-[180px] -tracking-tighter">
               Download CV <Download className="w-4 h-4 ml-1 mt-0.5" />
             </Button>
@@ -405,6 +407,7 @@ export default function Home() {
         </Tabs>
       </section>
 
+      {/* Projects */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-5 w-1/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
@@ -417,7 +420,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <Link href="/projects">
+            <Link href="/my-projects">
               <Button
                 size="lg"
                 variant="outline"
@@ -489,39 +492,41 @@ export default function Home() {
           >
             {projectData.map((data: ProjectsDataType) => (
               <SwiperSlide key={data.liveLink}>
-                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
-                  <div>
-                    <Image
-                      alt="Image"
-                      src={data.imgUrl}
-                      width={20}
-                      height={20}
-                      className="w-full object-fill rounded-md"
-                    />
-                  </div>
-                  <div className="px-3 py-3">
+                <Link href="/my-projects">
+                  <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
                     <div>
-                      <div className="flex gap-3">
-                        <h1 className="font-medium">{data.name}</h1>
-                        <Badge>{data.category}</Badge>
-                      </div>
-                      <p className="text-muted-foreground text-sm ml-1 mt-1">
-                        {data.description}
-                      </p>
+                      <Image
+                        alt="Image"
+                        src={data.imgUrl}
+                        width={20}
+                        height={20}
+                        className="w-full object-fill rounded-md"
+                      />
                     </div>
-
-                    <div className="mt-2 flex flex-wrap items-center gap-2">
-                      {data.tools.map((item, _i) => (
-                        <div
-                          key={_i}
-                          className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                        >
-                          {item}
+                    <div className="px-3 py-3">
+                      <div>
+                        <div className="flex gap-3">
+                          <h1 className="font-medium">{data.name}</h1>
+                          <Badge>{data.category}</Badge>
                         </div>
-                      ))}
+                        <p className="text-muted-foreground text-sm ml-1 mt-1">
+                          {data.description}
+                        </p>
+                      </div>
+
+                      <div className="mt-2 flex flex-wrap items-center gap-2">
+                        {data.tools.map((item, _i) => (
+                          <div
+                            key={_i}
+                            className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                          >
+                            {item}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -692,9 +697,11 @@ export default function Home() {
           <h2 className="text-3xl font-semibold text-center">
             Prepared to turn your ideas into reality? I can help you
           </h2>
-          <Button className="text-slate-100 w-[180px] -tracking-tighter">
-            Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
-          </Button>
+          <Link href="/contact">
+            <Button className="text-slate-100 w-[180px] -tracking-tighter">
+              Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </main>
