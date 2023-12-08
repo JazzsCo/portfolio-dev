@@ -31,14 +31,19 @@ const MainNav = () => {
 
   const routes = [
     {
+      name: "Home",
+      href: "/",
+      active: pathname === "/",
+    },
+    {
       name: "About",
       href: "/about",
       active: pathname === "/about",
     },
     {
-      name: "My Projects",
-      href: "/my-projects",
-      active: pathname === "/my-projects",
+      name: "Projects",
+      href: "/projects",
+      active: pathname === "/projects",
     },
     {
       name: "Contact",

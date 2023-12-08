@@ -420,7 +420,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <Link href="/my-projects">
+            <Link href="/projects">
               <Button
                 size="lg"
                 variant="outline"
@@ -445,13 +445,15 @@ export default function Home() {
               <SwiperSlide key={data.liveLink}>
                 <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
                   <div>
-                    <Image
-                      alt="Image"
-                      src={data.imgUrl}
-                      width={20}
-                      height={20}
-                      className="w-full object-fill rounded-md"
-                    />
+                    <Link href="/projects">
+                      <Image
+                        alt="Image"
+                        src={data.imgUrl}
+                        width={20}
+                        height={20}
+                        className="w-full object-fill rounded-md"
+                      />
+                    </Link>
                   </div>
                   <div className="px-3 py-3">
                     <div>
