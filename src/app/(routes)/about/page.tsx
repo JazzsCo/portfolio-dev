@@ -126,7 +126,7 @@ const AboutPage = () => {
           <div className="space-y-3 text-center md:text-left transition-all">
             <h2 className="text-3xl font-bold">Hello, My name is Tom</h2>
             <p className="text-muted-foreground">
-              I'm currently study to became Full Stack Developer. I live in
+              Im currently study to became Full Stack Developer. I live in
               Yangon, Kamaryut Hledan.
             </p>
           </div>
