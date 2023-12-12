@@ -13,7 +13,7 @@ export const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Tom.dev",
+  title: "JazzsCo",
   icons: {
     icon: ["/logo-dev.png"],
   },

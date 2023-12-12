@@ -57,16 +57,8 @@ const MainNav = () => {
       <div className="fixed z-10 left-0 top-0 flex w-full border-b border-gray-200 bg-gradient-to-b from-zinc-200 py-4 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:dark:bg-zinc-800/30 bg-opacity-0 ">
         <div className="w-full lg:max-w-7xl mx-auto px-5 md:px-7 flex items-center justify-between">
           <Link href="/">
-            <div className="relative flex items-end">
+            <div className="relative">
               <Image alt="Logo" src="/logo-dev.png" width={40} height={40} />
-              <h2
-                className={cn(
-                  "absolute top-4 left-12 font-bold -tracking-tighter text-2xl",
-                  poppins.className
-                )}
-              >
-                Tom
-              </h2>
             </div>
           </Link>
 
@@ -75,7 +67,7 @@ const MainNav = () => {
               <Link key={route.href} href={route.href}>
                 <h2
                   className={cn(
-                    "hover:text-green-700 transition-all",
+                    "hover:text-green-700 transition-all -tracking-tighter",
                     route.active ? "text-green-700" : "text-primary",
                     poppins.className
                   )}
@@ -108,7 +100,7 @@ const MainNav = () => {
                         <SheetClose>
                           <h2
                             className={cn(
-                              "hover:text-green-700 transition-all",
+                              "hover:text-green-700 transition-all -tracking-tighter",
                               route.active ? "text-green-700" : "text-primary",
                               poppins.className
                             )}
