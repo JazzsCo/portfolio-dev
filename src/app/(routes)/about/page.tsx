@@ -121,23 +121,34 @@ const AboutPage = () => {
   return (
     <main>
       {/* About Section */}
-      <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
+      <section className="mt-24 flex flex-col items-center bg-slate-800 justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold">Hello, My name is Tom</h2>
+            <h2 className="text-3xl font-bold">
+              Hi there! 👋 I&apos;m{" "}
+              <span className="-tracking-tighter">JazzsCo</span>
+            </h2>
             <p className="text-muted-foreground">
-              Im currently study to became Full Stack Developer. I live in
-              Yangon, Kamaryut Hledan.
+              I&apos;m first-year computer science student exploring the
+              exciting world of full-stack development.In my first year,
+              I&apos;ve delved into the fundamentals of computer science,
+              covering a diverse range of subjects from algorithms to data
+              structures. The thrill of coding and the endless possibilities it
+              offers have captivated me since day one. I&apos;m particularly
+              enthusiastic about mastering the art of full-stack development, as
+              it allows me to bring my creative ideas to life on both the front
+              and back ends of web applications. I&apos;m currently live in{" "}
+              <a
+                onClick={() =>
+                  window.open(
+                    "https://www.google.com/maps/dir/16.831045,96.123634/16.8310432,96.123634/@16.8314048,96.1233416,19.31z/data=!4m5!4m4!1m1!4e1!1m0!3e3?entry=ttu"
+                  )
+                }
+                className="cursor-pointer underline underline-offset-[0.5px]"
+              >
+                Yangon, Kamaryut Hledan.
+              </a>
             </p>
-          </div>
-
-          <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start gap-5">
-            {/* <Button className="text-slate-100 w-[180px] -tracking-tighter">
-              Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
-            </Button>
-            <Button variant="outline" className="w-[180px] -tracking-tighter">
-              Download CV <Download className="w-4 h-4 ml-1 mt-0.5" />
-            </Button> */}
           </div>
         </div>
 

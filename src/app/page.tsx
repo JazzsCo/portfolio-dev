@@ -12,7 +12,6 @@ import {
   User2,
 } from "lucide-react";
 import Lottie from "lottie-react";
-import { useEffect, useState } from "react";
 
 // import Swiper core and required modules
 import { Pagination } from "swiper/modules";
@@ -147,6 +146,14 @@ const skillData: skillDataType[] = [
         name: "Visual Studio Code",
         imageUrl: "/icons/vscode.svg",
       },
+      {
+        name: "Git",
+        imageUrl: "/icons/git.svg",
+      },
+      {
+        name: "Postman",
+        imageUrl: "/icons/postman.svg",
+      },
     ],
   },
 ];
@@ -278,16 +285,6 @@ const reviewData = [
 ];
 
 export default function Home() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
-
   return (
     <main>
       {/* Home Section */}
@@ -295,12 +292,14 @@ export default function Home() {
         <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
             <h1 className="text-lg -tracking-tighter font-semibold">
-              Fullstack Developer
+              Welcome To My Portfolio Website!
             </h1>
-            <h2 className="text-3xl font-bold">Hello, My name is Tom</h2>
+            <h2 className="text-3xl font-bold">My name is JazzsCo</h2>
             <p className="text-muted-foreground">
-              8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
-              Build A Portfolio Website: Re
+              Currently I&apos;m study to become full-stack developer. I&apos;m
+              a dedicated and innovative developer with a passion for creating
+              full-stack application. I&apos;m good problem solving and team
+              collaboration.
             </p>
           </div>
 
