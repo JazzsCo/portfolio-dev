@@ -294,7 +294,9 @@ export default function Home() {
             <h1 className="text-lg -tracking-tighter font-semibold">
               Welcome To My Portfolio Website!
             </h1>
-            <h2 className="text-3xl font-bold">My name is JazzsCo</h2>
+            <h2 className="text-3xl font-bold text-transparent gradient-text animate-gradient">
+              My name is JazzsCo
+            </h2>
             <p className="text-muted-foreground">
               Currently I&apos;m study to become full-stack developer. I&apos;m
               a dedicated and innovative developer with a passion for creating
@@ -304,11 +306,11 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start gap-5">
-            <Link href="/contact">
-              <Button className="text-slate-100 w-[180px] -tracking-tighter">
-                Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
-              </Button>
-            </Link>
+            <Button className="text-slate-100 w-[180px] -tracking-tighter">
+              <Link href="/contact" className="flex items-center">
+                Contact me <Send className="w-4 h-4 ml-1 mt-1" />
+              </Link>
+            </Button>
             <Button variant="outline" className="w-[180px] -tracking-tighter">
               Download CV <Download className="w-4 h-4 ml-1 mt-0.5" />
             </Button>
@@ -340,7 +342,7 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>Personal Info</CardTitle>
                 <CardDescription>
-                  Make changes to your account here. Click save when youre done.
+                  This is the main infomation of myself.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
@@ -348,7 +350,9 @@ export default function Home() {
                   {infoData.map((data) => (
                     <div key={data.text} className="flex gap-6">
                       <div className="w-4 h-4 text-primary">{data.icon}</div>
-                      <p className="text-muted-foreground">{data.text}</p>
+                      <p className="text-muted-foreground truncate">
+                        {data.text}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -408,22 +412,22 @@ export default function Home() {
 
       {/* Projects */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
-        <div className="space-y-5 w-1/4 flel flex-col justify-center">
+        <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold -tracking-tighter">
-              Latest Projects
-            </h2>
+            <h2 className="text-3xl font-bold"> Latest Projects</h2>
             <p className="text-muted-foreground">
-              8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
-              Build A Portfolio Website: Re
+              Currently I&apos;m study to become full-stack developer. I&apos;m
+              a dedicated and innovative developer with a passion for creating
+              full-stack application. I&apos;m good problem solving and team
+              collaboration.
             </p>
           </div>
-          <div>
+
+          <div className="flex flex-col items-center justify-center md:flex-row sm:justify-start">
             <Link href="/projects">
               <Button
-                size="lg"
                 variant="outline"
-                className="hover:bg-primary hover:text-white"
+                className="hover:bg-primary hover:text-white w-[180px] -tracking-tighter"
               >
                 Latest Projects
               </Button>
@@ -482,6 +486,7 @@ export default function Home() {
           </Swiper>
         </div>
       </section>
+
       <section>
         <div className="w-full hidden sm:block md:hidden mt-8">
           <Swiper

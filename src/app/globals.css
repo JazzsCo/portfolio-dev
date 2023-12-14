@@ -57,3 +57,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.gradient-text {
+  background: linear-gradient(to right, #8ae90e, #13d7e5, #08df4c, #ab67ea);
+  background-size: 300% 300%;
+  background-clip: text;
+}

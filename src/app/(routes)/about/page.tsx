@@ -13,6 +13,8 @@ import CuteGuy from "@/assets/cute-guy.json";
 import LazyGuy from "@/assets/lazy-guy.json";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Send } from "lucide-react";
 
 const skillData = [
   {
@@ -121,12 +123,14 @@ const AboutPage = () => {
   return (
     <main>
       {/* About Section */}
-      <section className="mt-24 flex flex-col items-center bg-slate-800 justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
+      <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
             <h2 className="text-3xl font-bold">
-              Hi there! 👋 I&apos;m{" "}
-              <span className="-tracking-tighter">JazzsCo</span>
+              Hi there!. 👋
+              <span className="-tracking-tighter text-transparent gradient-text animate-gradient">
+                I&apos;m JazzsCo
+              </span>
             </h2>
             <p className="text-muted-foreground">
               I&apos;m first-year computer science student exploring the
@@ -180,6 +184,19 @@ const AboutPage = () => {
           ))}
         </div>
       </section>
+
+      <div>
+        <div className="flex flex-col items-center justify-center gap-5 mt-24">
+          <h2 className="text-3xl font-semibold text-center">
+            Prepared to turn your ideas into reality? I can help you
+          </h2>
+          <Link href="/contact">
+            <Button className="text-slate-100 w-[180px] -tracking-tighter">
+              Contact me <Send className="w-4 h-4 ml-1 mt-0.5" />
+            </Button>
+          </Link>
+        </div>
+      </div>
     </main>
   );
 };
