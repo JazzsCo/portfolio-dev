@@ -28,6 +28,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { Qahiri } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().nonempty("Name is required."),
@@ -39,6 +40,8 @@ const formSchema = z.object({
 });
 
 const ContactPage = () => {
+  const router = useRouter();
+
   const [isMounted, setIsMounted] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -50,8 +53,17 @@ const ContactPage = () => {
     },
   });
 
+  const isLoading = form.formState.isSubmitting;
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log("VALUES", values);
+    try {
+      console.log("VALUES", values);
+    } catch (error) {
+      // Toast to success message
+      console.log("Error", error);
+    } finally {
+      router.refresh();
+    }
   };
 
   useEffect(() => {
@@ -66,12 +78,14 @@ const ContactPage = () => {
     <main>
       {/* Content Section */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
-        <div className="space-y-10 w-2/4 flex flex-col items-center md:items-start justify-center">
+        <div className="space-y-10 w-2/5 flex flex-col items-center md:items-start justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold">Lets Work Together.</h2>
+            <h2 className="text-3xl font-bold text-transparent gradient-text animate-gradient">
+              Lets Work Together.
+            </h2>
             <p className="text-muted-foreground">
-              If you need fullstack developer with junior position, Please
-              contact me.
+              You can leave a message directly through the website.If you need
+              fullstack developer with junior position, Please contact me.
             </p>
           </div>
 
@@ -88,7 +102,7 @@ const ContactPage = () => {
                 <div className="w-2 h-2 text-primary mt-[2px]">
                   <PhoneCall />
                 </div>
-                <p className="text-muted-foreground">+959969417233</p>
+                <p className="text-muted-foreground truncate">+959969417233</p>
               </div>
             </a>
 
@@ -104,7 +118,9 @@ const ContactPage = () => {
                 <div className="w-4 h-4 text-primary mt-[3px]">
                   <MailIcon />
                 </div>
-                <p className="text-muted-foreground">ygyi8632@gmail.com</p>
+                <p className="text-muted-foreground truncate">
+                  ygyi8632@gmail.com
+                </p>
               </div>
             </a>
 
@@ -120,7 +136,9 @@ const ContactPage = () => {
                 <div className="w-4 h-4 text-primary text-center">
                   <HomeIcon />
                 </div>
-                <p className="text-muted-foreground">Yangon, Kamaryut Hledan</p>
+                <p className="text-muted-foreground truncate">
+                  Yangon, Kamaryut Hledan
+                </p>
               </div>
             </a>
           </div>
@@ -143,7 +161,6 @@ const ContactPage = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="space-y-5 grid grid-cols-6"
             >
-              {/* `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;` */}
               <FormField
                 control={form.control}
                 name="name"
@@ -151,7 +168,11 @@ const ContactPage = () => {
                   <FormItem className="col-start-2 col-span-4">
                     <FormLabel className="-tracking-tighter">Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Jazzs_Co" {...field} />
+                      <Input
+                        disabled={isLoading}
+                        placeholder="Jazzs_Co"
+                        {...field}
+                      />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -167,7 +188,11 @@ const ContactPage = () => {
                       You email
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="your@gmail.com" {...field} />
+                      <Input
+                        disabled={isLoading}
+                        placeholder="your@gmail.com"
+                        {...field}
+                      />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -182,6 +207,7 @@ const ContactPage = () => {
                     <FormLabel className="-tracking-tighter">Content</FormLabel>
                     <FormControl>
                       <Textarea
+                        disabled={isLoading}
                         placeholder="Something If you want"
                         {...field}
                       />
@@ -191,7 +217,11 @@ const ContactPage = () => {
                   </FormItem>
                 )}
               />
-              <Button className="col-start-2 text-slate-100 col-span-4 -tracking-tighter">
+
+              <Button
+                disabled={isLoading}
+                className="col-start-2 text-slate-100 col-span-4 -tracking-tighter"
+              >
                 Lets Talk
               </Button>
             </form>

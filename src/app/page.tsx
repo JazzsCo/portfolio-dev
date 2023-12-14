@@ -41,6 +41,7 @@ import LazyGuy from "@/assets/lazy-guy.json";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useEffect, useState } from "react";
 
 type skillDataType = {
   title: string;
@@ -230,68 +231,64 @@ const reviewData = [
     name: "Thomas",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Developer",
     imgUrl: "/projects/genius.png",
   },
   {
     name: "Rose",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Engineer",
     imgUrl: "/projects/genius.png",
   },
   {
     name: "Suzy Buki",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Full-stack Developer",
     imgUrl: "/projects/genius.png",
   },
   {
     name: "Ah Shi Mar",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Designer",
     imgUrl: "/projects/genius.png",
   },
   {
     name: "Genius Sign",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Frontend Developer",
     imgUrl: "/projects/genius.png",
   },
   {
     name: "Hazsto",
     description:
       "Make changes to your account here. Click save when youre done.",
-    job: "Water",
-    imgUrl: "/projects/genius.png",
-  },
-  {
-    name: "Toki Moki",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    job: "Water",
-    imgUrl: "/projects/genius.png",
-  },
-  {
-    name: "Jenies Kiki",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    job: "Water",
+    job: "Backend Developer",
     imgUrl: "/projects/genius.png",
   },
 ];
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <main>
       {/* Home Section */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
         <div className="space-y-5 w-2/4 flel flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h1 className="text-lg -tracking-tighter font-semibold">
+            <h1 className="text-xl -tracking-tighter font-semibold">
               Welcome To My Portfolio Website!
             </h1>
             <h2 className="text-3xl font-bold text-transparent gradient-text animate-gradient">
@@ -340,8 +337,10 @@ export default function Home() {
           <TabsContent value="personal">
             <Card>
               <CardHeader>
-                <CardTitle>Personal Info</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-center md:text-start">
+                  Personal Info
+                </CardTitle>
+                <CardDescription className="text-center md:text-start">
                   This is the main infomation of myself.
                 </CardDescription>
               </CardHeader>
@@ -362,8 +361,10 @@ export default function Home() {
           <TabsContent value="skills">
             <Card>
               <CardHeader>
-                <CardTitle>What I Use Everyday</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-center md:text-start">
+                  What I Use Everyday
+                </CardTitle>
+                <CardDescription className="text-center md:text-start">
                   I use this languages, frameworks, databases, tools and other
                   libraries every day.
                 </CardDescription>
@@ -416,10 +417,10 @@ export default function Home() {
           <div className="space-y-3 text-center md:text-left transition-all">
             <h2 className="text-3xl font-bold"> Latest Projects</h2>
             <p className="text-muted-foreground">
-              Currently I&apos;m study to become full-stack developer. I&apos;m
-              a dedicated and innovative developer with a passion for creating
-              full-stack application. I&apos;m good problem solving and team
-              collaboration.
+              Welcome to my project showcase, a showcase of my skills and
+              creativity in the world of full-stack development. The projects
+              represents a journey of innovation and problem-solving, reflecting
+              my dedication to crafting meaningful digital experiences.
             </p>
           </div>
 
@@ -462,7 +463,9 @@ export default function Home() {
                     <div>
                       <div className="flex gap-3">
                         <h1 className="font-medium">{data.name}</h1>
-                        <Badge>{data.category}</Badge>
+                        <Badge className="text-white -tracking-tighter">
+                          {data.category}
+                        </Badge>
                       </div>
                       <p className="text-muted-foreground text-sm ml-1 mt-1">
                         {data.description}
@@ -513,7 +516,9 @@ export default function Home() {
                       <div>
                         <div className="flex gap-3">
                           <h1 className="font-medium">{data.name}</h1>
-                          <Badge>{data.category}</Badge>
+                          <Badge className="text-white -tracking-tighter">
+                            {data.category}
+                          </Badge>
                         </div>
                         <p className="text-muted-foreground text-sm ml-1 mt-1">
                           {data.description}
@@ -585,8 +590,9 @@ export default function Home() {
           <div className="space-y-3 text-center md:text-left transition-all">
             <h2 className="text-3xl font-bold -tracking-tighter">Reviews</h2>
             <p className="text-muted-foreground">
-              8,044 views 11 Nov 2023 #tailwindcss #nextjs #portfolio How To
-              Build A Portfolio Website: Re
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
+              vitae ipsa ducimus. Excepturi minima assumenda, rem laborum quis
+              unde sed.
             </p>
           </div>
         </div>
