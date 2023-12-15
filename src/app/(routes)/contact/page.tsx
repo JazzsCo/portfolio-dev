@@ -67,6 +67,8 @@ const ContactPage = () => {
 
       form.reset();
 
+      console.log(response);
+
       toast.success("Yey, you had content me!!");
     } catch (error) {
       toast.error("Something was wrong.");
