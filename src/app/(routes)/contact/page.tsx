@@ -2,10 +2,12 @@
 
 import * as z from "zod";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, HomeIcon, MailIcon, PhoneCall } from "lucide-react";
+import toast from "react-hot-toast";
 
 import LocationAnimationData from "@/assets/location-animation.json";
 import SampleAnimationData from "@/assets/sample-animation.json";
@@ -57,10 +59,17 @@ const ContactPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log("VALUES", values);
+      const response = await axios.post("/api/customer", {
+        name: values.name,
+        email: values.email,
+        content: values.content,
+      });
+
+      form.reset();
+
+      toast.success("Yey, you had content me!!");
     } catch (error) {
-      // Toast to success message
-      console.log("Error", error);
+      toast.error("Something was wrong.");
     } finally {
       router.refresh();
     }
