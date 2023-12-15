@@ -40,11 +40,11 @@ const MainNav = () => {
       href: "/about",
       active: pathname === "/about",
     },
-    {
-      name: "Projects",
-      href: "/projects",
-      active: pathname === "/projects",
-    },
+    // {
+    //   name: "Projects",
+    //   href: "/projects",
+    //   active: pathname === "/projects",
+    // },
     {
       name: "Contact",
       href: "/contact",

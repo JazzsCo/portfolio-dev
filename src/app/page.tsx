@@ -163,7 +163,7 @@ const projectData: ProjectsDataType[] = [
   {
     name: "Genius AI",
     description:
-      "Make changes to your account here. Click save when youre done.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.vitae ipsa ducimus.",
     category: "SAAS",
     tools: [
       "Typescript",
@@ -174,13 +174,13 @@ const projectData: ProjectsDataType[] = [
       "Shadcn UI",
     ],
     imgUrl: "/projects/genius.png",
-    liveLink: "/",
-    githubLink: "/",
+    liveLink: "https://genius-ai-peach.vercel.app/",
+    githubLink: "https://github.com/JazzsCo/genius-ai",
   },
   {
-    name: "Ecommerce Admin",
+    name: "Genius AI",
     description:
-      "Make changes to your account here. Click save when youre done.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.vitae ipsa ducimus.",
     category: "SAAS",
     tools: [
       "Typescript",
@@ -190,39 +190,43 @@ const projectData: ProjectsDataType[] = [
       "Tailwind",
       "Shadcn UI",
     ],
-    imgUrl: "/projects/ecommerce.png",
-    liveLink: "/",
-    githubLink: "/",
-  },
-  {
-    name: "Food Delivery App",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    category: "POS",
-    tools: ["Typescript", "Javascript", "React Native", "Expo", "Tailwind"],
-    imgUrl: "/projects/ecommerce.png",
-    liveLink: "/",
-    githubLink: "/",
-  },
-  {
-    name: "Car Rental",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    category: "Service",
-    tools: ["Typescript", "Javascript", "React", "Nextjs", "Tailwind"],
-    imgUrl: "/projects/carrental.png",
-    liveLink: "/",
-    githubLink: "/",
-  },
-  {
-    name: "Ecommerce UI App",
-    description:
-      "Make changes to your account here. Click save when youre done.",
-    category: "UI",
-    tools: ["Typescript", "Javascript", "React Native", "Expo", "Tailwind"],
     imgUrl: "/projects/genius.png",
-    liveLink: "/",
-    githubLink: "/",
+    liveLink: "https://genius-ai-peach.vercel.app/",
+    githubLink: "https://github.com/JazzsCo/genius-ai",
+  },
+  {
+    name: "Genius AI",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.vitae ipsa ducimus.",
+    category: "SAAS",
+    tools: [
+      "Typescript",
+      "Javascript",
+      "React",
+      "Nextjs",
+      "Tailwind",
+      "Shadcn UI",
+    ],
+    imgUrl: "/projects/genius.png",
+    liveLink: "https://genius-ai-peach.vercel.app/",
+    githubLink: "https://github.com/JazzsCo/genius-ai",
+  },
+  {
+    name: "Genius AI",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit.vitae ipsa ducimus.",
+    category: "SAAS",
+    tools: [
+      "Typescript",
+      "Javascript",
+      "React",
+      "Nextjs",
+      "Tailwind",
+      "Shadcn UI",
+    ],
+    imgUrl: "/projects/genius.png",
+    liveLink: "https://genius-ai-peach.vercel.app/",
+    githubLink: "https://github.com/JazzsCo/genius-ai",
   },
 ];
 
@@ -425,7 +429,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center justify-center md:flex-row sm:justify-start">
-            <Link href="/projects">
+            <Link href="/">
               <Button
                 variant="outline"
                 className="hover:bg-primary hover:text-white w-[180px] -tracking-tighter"
@@ -448,16 +452,19 @@ export default function Home() {
             {projectData.map((data: ProjectsDataType) => (
               <SwiperSlide key={data.liveLink}>
                 <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
-                  <div>
-                    <Link href="/projects">
+                  <div className="relative">
+                    <a
+                      onClick={() => window.open(data.liveLink)}
+                      className="cursor-pointer"
+                    >
                       <Image
                         alt="Image"
                         src={data.imgUrl}
                         width={20}
                         height={20}
-                        className="w-full object-fill rounded-md"
+                        className="w-full object-cover aspect-square rounded-md"
                       />
-                    </Link>
+                    </a>
                   </div>
                   <div className="px-3 py-3">
                     <div>
@@ -501,43 +508,44 @@ export default function Home() {
           >
             {projectData.map((data: ProjectsDataType) => (
               <SwiperSlide key={data.liveLink}>
-                <Link href="/my-projects">
-                  <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
+                <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
+                  <a
+                    onClick={() => window.open(data.liveLink)}
+                    className="cursor-pointer"
+                  >
+                    <Image
+                      alt="Image"
+                      src={data.imgUrl}
+                      width={20}
+                      height={20}
+                      className="w-full object-fill rounded-md"
+                    />
+                  </a>
+                  <div className="px-3 py-3">
                     <div>
-                      <Image
-                        alt="Image"
-                        src={data.imgUrl}
-                        width={20}
-                        height={20}
-                        className="w-full object-fill rounded-md"
-                      />
+                      <div className="flex gap-3">
+                        <h1 className="font-medium">{data.name}</h1>
+                        <Badge className="text-white -tracking-tighter">
+                          {data.category}
+                        </Badge>
+                      </div>
+                      <p className="text-muted-foreground text-sm ml-1 mt-1">
+                        {data.description}
+                      </p>
                     </div>
-                    <div className="px-3 py-3">
-                      <div>
-                        <div className="flex gap-3">
-                          <h1 className="font-medium">{data.name}</h1>
-                          <Badge className="text-white -tracking-tighter">
-                            {data.category}
-                          </Badge>
-                        </div>
-                        <p className="text-muted-foreground text-sm ml-1 mt-1">
-                          {data.description}
-                        </p>
-                      </div>
 
-                      <div className="mt-2 flex flex-wrap items-center gap-2">
-                        {data.tools.map((item, _i) => (
-                          <div
-                            key={_i}
-                            className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                          >
-                            {item}
-                          </div>
-                        ))}
-                      </div>
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      {data.tools.map((item, _i) => (
+                        <div
+                          key={_i}
+                          className="flex items-center justify-center w-fit rounded-full border dark:border-gray-700 px-3 py-0.5 text-xs font-semibold transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                        >
+                          {item}
+                        </div>
+                      ))}
                     </div>
                   </div>
-                </Link>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -549,7 +557,10 @@ export default function Home() {
             key={data.liveLink}
             className="w-[300px] md:w-[320px] border rounded-md bg-muted"
           >
-            <div>
+            <a
+              onClick={() => window.open(data.liveLink)}
+              className="cursor-pointer"
+            >
               <Image
                 alt="Image"
                 src={data.imgUrl}
@@ -557,7 +568,7 @@ export default function Home() {
                 height={20}
                 className="w-full object-fill rounded-md"
               />
-            </div>
+            </a>
             <div className="px-3 py-3">
               <div>
                 <div className="flex gap-3">
