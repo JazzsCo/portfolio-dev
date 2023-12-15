@@ -15,6 +15,7 @@ import LazyGuy from "@/assets/lazy-guy.json";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Send } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const skillData = [
   {
@@ -120,6 +121,16 @@ const skillData = [
 ];
 
 const AboutPage = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <main>
       {/* About Section */}

@@ -290,7 +290,7 @@ export default function Home() {
     <main>
       {/* Home Section */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
-        <div className="space-y-5 w-2/4 flel flex-col justify-center">
+        <div className="space-y-5 w-2/4 flex flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
             <h1 className="text-xl -tracking-tighter font-semibold">
               Welcome To My Portfolio Website!
@@ -417,9 +417,9 @@ export default function Home() {
 
       {/* Projects */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
-        <div className="space-y-5 w-2/4 flel flex-col justify-center">
+        <div className="space-y-5 w-2/4 flex flex-col justify-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold"> Latest Projects</h2>
+            <h2 className="text-3xl font-bold">Latest Projects</h2>
             <p className="text-muted-foreground">
               Welcome to my project showcase, a showcase of my skills and
               creativity in the world of full-stack development. The projects
@@ -452,20 +452,18 @@ export default function Home() {
             {projectData.map((data: ProjectsDataType) => (
               <SwiperSlide key={data.liveLink}>
                 <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
-                  <div className="relative">
-                    <a
-                      onClick={() => window.open(data.liveLink)}
-                      className="cursor-pointer"
-                    >
-                      <Image
-                        alt="Image"
-                        src={data.imgUrl}
-                        width={20}
-                        height={20}
-                        className="w-full object-cover aspect-square rounded-md"
-                      />
-                    </a>
-                  </div>
+                  <a
+                    onClick={() => window.open(data.liveLink)}
+                    className="cursor-pointer relative aspect-square"
+                  >
+                    <Image
+                      alt="Image"
+                      width={330}
+                      height={150}
+                      src={data.imgUrl}
+                      className="rounded-md"
+                    />
+                  </a>
                   <div className="px-3 py-3">
                     <div>
                       <div className="flex gap-3">
@@ -511,14 +509,14 @@ export default function Home() {
                 <div className="w-[300px] md:w-[320px] border rounded-md bg-muted">
                   <a
                     onClick={() => window.open(data.liveLink)}
-                    className="cursor-pointer"
+                    className="cursor-pointer relative aspect-square"
                   >
                     <Image
                       alt="Image"
                       src={data.imgUrl}
-                      width={20}
-                      height={20}
-                      className="w-full object-fill rounded-md"
+                      width={300}
+                      height={120}
+                      className="rounded-md"
                     />
                   </a>
                   <div className="px-3 py-3">
@@ -559,14 +557,14 @@ export default function Home() {
           >
             <a
               onClick={() => window.open(data.liveLink)}
-              className="cursor-pointer"
+              className="cursor-pointer relative aspect-square"
             >
               <Image
                 alt="Image"
                 src={data.imgUrl}
-                width={20}
-                height={20}
-                className="w-full object-fill rounded-md"
+                width={300}
+                height={120}
+                className="rounded-md"
               />
             </a>
             <div className="px-3 py-3">
@@ -597,9 +595,9 @@ export default function Home() {
 
       {/* Reviews */}
       <section className="mt-24 flex flex-col items-center justify-around md:flex-row space-y-10 md:space-x-10 transition-all">
-        <div className="space-y-5 w-1/4 flel flex-col justify-center">
+        <div className="space-y-5 w-1/4 flex flex-col justify-center items-center">
           <div className="space-y-3 text-center md:text-left transition-all">
-            <h2 className="text-3xl font-bold -tracking-tighter">Reviews</h2>
+            <h2 className="text-3xl font-bold">Reviews</h2>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
               vitae ipsa ducimus. Excepturi minima assumenda, rem laborum quis
