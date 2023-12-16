@@ -313,7 +313,9 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="outline" className="w-[180px] -tracking-tighter">
-              Download CV <Download className="w-4 h-4 ml-1 mt-0.5" />
+              <a href="/cv/jazzsco.pdf" download className="flex">
+                Download CV <Download className="w-4 h-4 ml-1 mt-0.5" />
+              </a>
             </Button>
           </div>
         </div>
