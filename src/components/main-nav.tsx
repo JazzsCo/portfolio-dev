@@ -170,7 +170,7 @@ const MainNav = () => {
                 </div>
 
                 <SheetFooter>
-                  <div className="absolute bottom-2 inset-x-0">
+                  <div className="absolute bottom-4 sm:bottom-2 inset-x-0">
                     <div className="flex flex-col items-center justify-center">
                       <div className="flex gap-2">
                         {socialData.map((data) => (
