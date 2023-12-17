@@ -296,7 +296,7 @@ export default function Home() {
               Welcome To My Portfolio Website!
             </h1>
             <h2 className="text-3xl font-bold text-transparent gradient-text animate-gradient">
-              My name is JazzsCo
+              My name is <span className="-tracking-tighter">JazzsCo</span>
             </h2>
             <p className="text-muted-foreground">
               Currently I&apos;m study to become full-stack developer. I&apos;m

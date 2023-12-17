@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
@@ -26,8 +26,43 @@ import { MenuIcon } from "lucide-react";
 
 const poppins = Montserrat({ weight: "600", subsets: ["latin"] });
 
+const socialData = [
+  {
+    name: "facebook",
+    link: "https://www.facebook.com/profile.php?id=100035109380459",
+    imgUrl: "/social/facebook.png",
+  },
+  {
+    name: "discord",
+    link: "https://discord.com/channels/@me/1073582027640688672",
+    imgUrl: "/social/discord.png",
+  },
+  {
+    name: "github",
+    link: "https://github.com/JazzsCo",
+    imgUrl: "/social/github.png",
+  },
+  {
+    name: "instagram",
+    link: "https://www.instagram.com/thuyein_o/",
+    imgUrl: "/social/instagram.png",
+  },
+  {
+    name: "line",
+    link: "https://line.me/ti/p/LiQRD9kYn2",
+    imgUrl: "/social/line.png",
+  },
+  {
+    name: "linkedin",
+    link: "https://www.linkedin.com/in/jazzs-co-7aa4a526b/",
+    imgUrl: "/social/linkedin.png",
+  },
+];
+
 const MainNav = () => {
   const pathname = usePathname();
+
+  const [isMounted, setIsMounted] = useState(false);
 
   const routes = [
     {
@@ -51,6 +86,14 @@ const MainNav = () => {
       active: pathname === "/contact",
     },
   ];
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div className="relative">
@@ -90,7 +133,20 @@ const MainNav = () => {
 
               <SheetContent>
                 <SheetHeader>
-                  <SheetTitle>Edit profile</SheetTitle>
+                  <SheetTitle>
+                    <div className="w-fit mt-3">
+                      <Link href="/">
+                        <div className="relative">
+                          <Image
+                            alt="Logo"
+                            src="/logo-dev.png"
+                            width={35}
+                            height={35}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  </SheetTitle>
                 </SheetHeader>
 
                 <div className="px-3 mt-5 w-full flex justify-center">
@@ -112,6 +168,29 @@ const MainNav = () => {
                     ))}
                   </div>
                 </div>
+
+                <SheetFooter>
+                  <div className="absolute bottom-2 inset-x-0">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="flex gap-2">
+                        {socialData.map((data) => (
+                          <a
+                            key={data.link}
+                            onClick={() => window.open(data.link)}
+                            className="cursor-pointer"
+                          >
+                            <Image
+                              alt="Image"
+                              src={data.imgUrl}
+                              width={20}
+                              height={20}
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </SheetFooter>
               </SheetContent>
             </Sheet>
 
