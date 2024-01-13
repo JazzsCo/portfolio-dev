@@ -66,7 +66,7 @@ type ProjectsDataType = {
 const infoData = [
   {
     icon: <User2 />,
-    text: "Tom",
+    text: "Thu Yein Oo",
   },
   {
     icon: <PhoneCall />,
